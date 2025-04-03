@@ -114,7 +114,7 @@ function NavBar({mode,setMode}) {
               textDecoration: "none",
             }}
           >
-            LOGO
+            PVSKM
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
