@@ -31,7 +31,7 @@ function App() {
       >
         <CardDisplay />
       </Box>
-      <Box sx={{ margin: "40px 90px",display:'flex',justifyContent:'center', textAlign:'center'}}>
+      <Box sx={{ margin: "40px 90px"}}>
         <CenteredTabs />
       </Box>
     </Box>
