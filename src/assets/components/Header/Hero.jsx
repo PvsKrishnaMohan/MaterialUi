@@ -1,22 +1,26 @@
 import React from "react";
 import Stack from "@mui/material/Stack";
 import HeroBanner from "./HeroBanner";
-import { Box } from "@mui/material";
+import { Box, useMediaQuery, useTheme } from "@mui/material";
 import IntroDivider from "./Divider";
 
 const Hero = () => {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
     <Stack
-      direction="row"
-      spacing={2}
-      justifyContent="space-evenly"
-      sx={{ margin: "15px" }}
+      direction={isSmallScreen ? "column" : "row"}
+      spacing={isSmallScreen ? 4 : 2}
+      justifyContent="center"
+      alignItems="center"
+      sx={{ margin: { xs: "10px", sm: "15px", md: "30px" }, width: "100%" }}
     >
-      <Box sx={{ flex: "1" }}>
+      <Box sx={{ width: { xs: "100%", sm: "50%", md: "30%" }, textAlign: "center" }}>
         <HeroBanner />
       </Box>
-      <Box sx={{ flex: "4" }}>
-        <IntroDivider/>
+      <Box sx={{ width: { xs: "100%", sm: "50%", md: "70%" } }}>
+        <IntroDivider />
       </Box>
     </Stack>
   );
