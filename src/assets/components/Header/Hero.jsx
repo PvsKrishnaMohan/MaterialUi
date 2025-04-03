@@ -1,8 +1,8 @@
 import React from "react";
 import Stack from "@mui/material/Stack";
-import HeroText from "./HeroText";
 import HeroBanner from "./HeroBanner";
 import { Box } from "@mui/material";
+import IntroDivider from "./Divider";
 
 const Hero = () => {
   return (
@@ -16,7 +16,7 @@ const Hero = () => {
         <HeroBanner />
       </Box>
       <Box sx={{ flex: "4" }}>
-        <HeroText />
+        <IntroDivider/>
       </Box>
     </Stack>
   );
