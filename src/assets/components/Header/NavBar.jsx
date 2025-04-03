@@ -15,11 +15,12 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import ViewSidebarIcon from "@mui/icons-material/ViewSidebar";
 import TemporaryDrawer from "./Drawer";
+import ThemedSwitch from "./Switch";
 
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-function NavBar() {
+function NavBar({mode,setMode}) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [open,setOpen] = useState(false);
@@ -162,6 +163,7 @@ function NavBar() {
                 </MenuItem>
               ))}
             </Menu>
+            <ThemedSwitch mode={mode} setMode={setMode}/>
           </Box>
         </Toolbar>
         {open && <TemporaryDrawer open={open} setOpen={setOpen}/>}

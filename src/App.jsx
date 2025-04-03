@@ -11,38 +11,52 @@ import CardDisplay from "./assets/components/Header/CardDisplay";
 import CenteredTabs from "./assets/components/Header/Tabs";
 import Chart1 from "./assets/components/Header/Chart1";
 import Chart2 from "./assets/components/Header/Chart2";
+import { useState } from "react";
 
-export const theme = createTheme({
-  palette: {
-    primary: { main: "#4caf50" },
-    secondary: lime,
-  },
-});
+// export const theme = createTheme({
+//   palette: {
+//     // primary: { main: "#4caf50" },
+//     // secondary: lime,
+//     // mode:mode
+//   },
+// });
 
 function App() {
+  const [mode, setMode] = useState("dark");
+
+  const theme = createTheme({
+    palette: {
+      mode:mode
+    }
+  })
 
   return (
-    <Box sx={{ overflow: "hidden" }}>
-      <NavBar />
-      <Hero />
-      <Box style={{ margin: "0px 90px" }}>
-        <AccordionModel />
-      </Box>
-      <Box
-        sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
-      >
-        <CardDisplay />
-      </Box>
-      <Stack sx={{ margin: "40px 90px"}}>
-        <CenteredTabs />
-      </Stack>
+    <ThemeProvider theme={theme}>
+      <Box sx={{ overflow: "hidden" }} bgcolor={'background.default'}>
+        <NavBar mode={mode} setMode={setMode}/>
+        <Hero />
+        <Box style={{ margin: "0px 90px" }}>
+          <AccordionModel />
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <CardDisplay />
+        </Box>
+        <Stack sx={{ margin: "40px 90px" }}>
+          <CenteredTabs />
+        </Stack>
 
-      <Stack direction='row' spacing={2}
-      justifyContent="space-evenly">
-        <Chart1/>
-        <Chart2/>
-      </Stack>
-    </Box>
+        <Stack direction="row" spacing={2} justifyContent="space-evenly">
+          <Chart1 />
+          <Chart2 />
+        </Stack>
+      </Box>
+    </ThemeProvider>
   );
 }
 
