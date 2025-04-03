@@ -1,6 +1,6 @@
 import "./App.css";
 import Box from "@mui/material/Box";
-import { styled } from "@mui/material";
+import { Stack, styled } from "@mui/material";
 import Button from "@mui/material/Button";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { lime, purple } from "@mui/material/colors";
@@ -9,6 +9,8 @@ import Hero from "./assets/components/Header/Hero";
 import AccordionModel from "./assets/components/Header/Accordion";
 import CardDisplay from "./assets/components/Header/CardDisplay";
 import CenteredTabs from "./assets/components/Header/Tabs";
+import Chart1 from "./assets/components/Header/Chart1";
+import Chart2 from "./assets/components/Header/Chart2";
 
 export const theme = createTheme({
   palette: {
@@ -31,9 +33,15 @@ function App() {
       >
         <CardDisplay />
       </Box>
-      <Box sx={{ margin: "40px 90px"}}>
+      <Stack sx={{ margin: "40px 90px"}}>
         <CenteredTabs />
-      </Box>
+      </Stack>
+
+      <Stack direction='row' spacing={2}
+      justifyContent="space-evenly">
+        <Chart1/>
+        <Chart2/>
+      </Stack>
     </Box>
   );
 }
