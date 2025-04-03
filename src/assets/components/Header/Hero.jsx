@@ -10,17 +10,40 @@ const Hero = () => {
 
   return (
     <Stack
-      direction={isSmallScreen ? "column" : "row"}
-      spacing={isSmallScreen ? 4 : 2}
+      direction={isSmallScreen ? "column" : "row"} // Image below card only on small screens
+      spacing={isSmallScreen ? 4 : 10} // Increased spacing for large screens
       justifyContent="center"
       alignItems="center"
-      sx={{ margin: { xs: "10px", sm: "15px", md: "30px" }, width: "100%" }}
+      sx={{
+        width: "100%",
+        px: { xs: 2, sm: 4, md: 6 },
+        mt: { xs: 3, md: 6 },
+        mb: { xs: 3, md: 10 },
+      }}
     >
-      <Box sx={{ width: { xs: "100%", sm: "50%", md: "30%" }, textAlign: "center" }}>
-        <HeroBanner />
-      </Box>
-      <Box sx={{ width: { xs: "100%", sm: "50%", md: "70%" } }}>
+      {/* Card Section */}
+      <Box
+        sx={{
+          width: { xs: "100%", sm: "60%", md: "40%" },
+          display: "flex",
+          justifyContent: "center",
+          mb: isSmallScreen ? 4 : 8, 
+        }}
+      >
         <IntroDivider />
+      </Box>
+
+      {/* Image Section (Will be below card on mobile) */}
+      <Box
+        sx={{
+          width: { xs: "100%", sm: "60%", md: "50%" },
+          display: "flex",
+          justifyContent: "center",
+          order: isSmallScreen ? 2 : 1, 
+          mt: isSmallScreen ? -2 : 0, 
+        }}
+      >
+        <HeroBanner />
       </Box>
     </Stack>
   );
